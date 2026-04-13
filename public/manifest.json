@@ -1,0 +1,18 @@
+{
+  "name": "MacroMate",
+  "short_name": "MacroMate",
+  "description": "AI-powered macro and calorie tracker",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#111827",
+  "background_color": "#f9fafb",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
