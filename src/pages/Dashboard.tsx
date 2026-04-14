@@ -92,7 +92,7 @@ export default function Dashboard() {
   const today = new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })
 
   return (
-    <div className="min-h-screen bg-gray-50" style={{ paddingBottom: 'calc(128px + env(safe-area-inset-bottom))' }}>
+    <div className="min-h-screen bg-gray-50" style={{ paddingTop: 'env(safe-area-inset-top)', paddingBottom: 'calc(128px + env(safe-area-inset-bottom))' }}>
       {/* Header */}
       <div className="bg-white border-b border-gray-100 px-4 py-4">
         <h1 className="text-lg font-bold text-gray-900">MacroMate</h1>
