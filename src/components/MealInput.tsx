@@ -7,12 +7,12 @@ interface Props {
   logging: boolean
 }
 
-const PLACEHOLDER = `Describe what you ate — e.g.:
+const PLACEHOLDER = `One bullet per food item — e.g.:
 
-• Nasi 2 centong, ayam geprek 1 potong, tempe goreng 2 potong
-• Oatmeal with banana and peanut butter, 1 bowl
-• Gado-gado sepiring + lontong 1 potong
-• Sepiring nasi padang: rendang, sayur nangka, tempe`
+- coffee + protein shake 200ml
+- tuna onigiri 1 pcs (rice 80gr, tuna 30gr)
+- lunch: nasi goreng 1 piring, telur ceplok 2
+- dinner: ayam bakar 150gr, sayur tumis`
 
 export default function MealInput({ onLog, logging }: Props) {
   const [description, setDescription] = useState('')

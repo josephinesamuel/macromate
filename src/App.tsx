@@ -8,6 +8,7 @@ import Settings from './pages/Settings'
 import LogMeal from './pages/LogMeal'
 import Dashboard from './pages/Dashboard'
 import History from './pages/History'
+import Progress from './pages/Progress'
 
 // Checks if the current user has a profile; redirects to /setup if not
 function ProfileGuard({ children }: { children: React.ReactNode }) {
@@ -95,6 +96,14 @@ export default function App() {
           element={
             <AuthGuard>
               <History />
+            </AuthGuard>
+          }
+        />
+        <Route
+          path="/progress"
+          element={
+            <AuthGuard>
+              <Progress />
             </AuthGuard>
           }
         />

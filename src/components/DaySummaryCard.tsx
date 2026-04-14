@@ -16,6 +16,11 @@ interface DayData {
 interface Props {
   day: DayData
   targets: MacroTargets
+  onDelete: (id: string) => void
+  deletingId: string | null
+  onReLog: (meal: MealLog, date: string) => void
+  reLoggingId: string | null
+  reLoggedIds: Set<string>
 }
 
 function getStatus(deficit: number): { label: string; badgeClass: string } {
@@ -29,7 +34,7 @@ function formatDate(dateStr: string): string {
   return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })
 }
 
-export default function DaySummaryCard({ day, targets }: Props) {
+export default function DaySummaryCard({ day, targets, onDelete, deletingId, onReLog, reLoggingId, reLoggedIds }: Props) {
   const [expanded, setExpanded] = useState(false)
 
   const deficit = targets.tdee - day.calories
@@ -96,7 +101,17 @@ export default function DaySummaryCard({ day, targets }: Props) {
       {expanded && (
         <div className="border-t border-gray-100 px-4 py-3 space-y-3">
           {day.meals.map((meal) => (
-            <MealCard key={meal.id} meal={meal} showDelete={false} />
+            <MealCard
+              key={meal.id}
+              meal={meal}
+              showDelete={true}
+              onDelete={onDelete}
+              deleting={deletingId === meal.id}
+              onReLog={onReLog}
+              reLogging={reLoggingId === meal.id}
+              reLogged={reLoggedIds.has(meal.id)}
+              rawInput={meal.raw_input}
+            />
           ))}
         </div>
       )}
